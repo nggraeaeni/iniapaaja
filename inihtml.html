@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+   <!-- Link to eksternal css file -->
+    <link rel="stylesheet" href="css\style.css">
+
+    <!-- tailwind css sdn -->
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+    <body>
+
+    <div class="semuanya">
+
+    <!-- harder selection -->
+    <header>
+        
+    <h1 class="text-2xl font-bold pb-5">Todo List Apps </h1>
+        
+    </header>
+
+    <!-- main content goes here -->
+    <main>
+        <!-- from section -->
+        <section class="form-section">
+            <from>
+                <!-- Todo Input -->
+                 <input type="text" class="border rounded p-2" id="todo-input" placeholder="Enter a new Todo item">
+
+                <!-- Date input -->
+                 <input type="date" class="border rounded p-2" id="todo-date" placeholder="Enter due date">
+            </from>
+
+            <!-- Add Button -->
+             <button type="button" onclick="addTodo();" class="border rounded p-2 bg-sky bg-green-500 text-white">Add Todo</button>
+             <button type="button" onclick="clearTodos();" class="border rounded p-2 bg-red-500 text-white">Clear All Todos</button>
+             <button type="button" onclick="filteroptions();" class="border rounded p-2 bg-blue-500 text-white">Filter Options</button>
+        </section>
+
+        <script>
+            function addTodo() {
+                // Get the input values
+                const todoInput = document.getElementById('todo-input').value;
+                const todoDate = document.getElementById('todo-date').value;
+
+                // Create a new list item
+                const li = document.createElement('li');
+                li.textContent = `${todoInput} ${todoDate}`;
+
+                // Append the new item to the todo list
+                document.getElementById('todo-list').appendChild(li);
+
+                // Clear the input fields
+                document.getElementById('todo-input').value = '';
+                document.getElementById('todo-date').value = '';
+            }
+
+            function clearTodos() {
+                const todoList = document.getElementById('todo-list');
+                todoList.innerHTML = ''; // Clear all todo items
+            }
+
+            function filteroptions() {
+                alert('Filter options functionality to be implemented.');
+            }
+        </script>
+
+        <!-- todo list section -->
+         <section class="pt-2">
+         <header>
+            <h1 class="text-2xl font-semibold">list of todos</h1>
+         </header>
+
+         <ul class="pt-2" id="todo-list">
+            <!-- todo items will be dynamically added here -->
+            <li> no todos available </li>
+        </ul>
+         </section>
+         
+    </main>
+
+    <!--footer selection -->
+    <footer class="pt-5">
+        <p>&copy; 2025 Todo List Aeni Apps </p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
